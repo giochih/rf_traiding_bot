@@ -1,0 +1,4 @@
+torch~=2.4.1+cu118
+numpy~=2.1.1
+pandas~=2.2.2
+matplotlib~=3.9.2
