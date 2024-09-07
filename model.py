@@ -3,6 +3,7 @@ import torch.nn.functional as torch_functional
 import torch.optim as optim
 import torch
 
+
 class Model(nn.Module):
     def __init__(self, input_size=317):
         super().__init__()
@@ -18,14 +19,14 @@ class Model(nn.Module):
 
 
 class Trainer:
-    def __init__(self, model, lr=0.001, gamma=0.9, device = 'cpu'):
+    def __init__(self, model, lr=0.001, gamma=0.9, device="cpu"):
         self.lr = lr
         self.gamma = gamma
         self.model = model.to(device)
         self.optimizer = optim.Adam(model.parameters(), lr=self.lr)
         self.criterion = nn.MSELoss()
 
-    def train_step(self, state, action, reward, next_state, device = 'cpu'):
+    def train_step(self, state, action, reward, next_state, device="cpu"):
         action = torch.tensor(action, dtype=torch.long).to(device)
         reward = torch.tensor(reward, dtype=torch.float).to(device)
 
